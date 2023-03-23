@@ -3,7 +3,6 @@ import jakarta.persistence.*;
 import lombok.Builder;
 
 @Entity
-@Builder
 @Table(name = "poems")
 public class CPoems {
 

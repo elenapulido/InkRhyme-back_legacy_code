@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/vi/poems")
+@RequestMapping("api/v1/poems")
 @CrossOrigin("*")
 public class CUserController {
     @Autowired
