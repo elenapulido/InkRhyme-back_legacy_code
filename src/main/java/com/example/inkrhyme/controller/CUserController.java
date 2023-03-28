@@ -43,7 +43,7 @@ public class CUserController {
         currentPoem.setAuthor(poem.getAuthor());
         currentPoem.setPoem(poem.getPoem());
         currentPoem.setUrl(poem.getUrl());
-        currentPoem = iPoems.save(poem);
+        currentPoem = iPoems.save(currentPoem);
         return ResponseEntity.ok(currentPoem);
     }
     @DeleteMapping("/delete/{id}")
