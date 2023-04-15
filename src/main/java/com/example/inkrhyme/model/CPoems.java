@@ -15,8 +15,8 @@ public class CPoems {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id", nullable = false)
     private long id;
-    @Column (name = "tittle", nullable = false)
-    private String tittle;
+    @Column (name = "title", nullable = false)
+    private String title;
     @Column (name = "genre", nullable = false)
     private String genre;
     @Column (name = "poem", nullable = false)
