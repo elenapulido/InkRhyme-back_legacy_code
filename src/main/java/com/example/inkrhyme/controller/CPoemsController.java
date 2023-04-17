@@ -33,17 +33,9 @@ public class CPoemsController {
     }
 
     @PutMapping("/{id}")
-    private void updatePoems(@RequestBody CPoems updatedPoems, @PathVariable("id") Long id){
-        Optional<CPoems> optionalPoems = cService.readPoemsId(id);
-        if(optionalPoems.isPresent()){
-            CPoems existingPoems = optionalPoems.get();
-            existingPoems.setTitle(updatedPoems.getTitle());
-            existingPoems.setGenre(updatedPoems.getGenre());
-            existingPoems.setPoem(updatedPoems.getPoem());
-            existingPoems.setAuthor(updatedPoems.getAuthor());
-            existingPoems.setUrl(updatedPoems.getUrl());
-            cService.updatePoems(existingPoems);
-        }
+    private void updatePoems(@RequestBody CPoems poems,@PathVariable("id")Long id){
+        cService.updatePoems(poems,id);
+
     }
 
 

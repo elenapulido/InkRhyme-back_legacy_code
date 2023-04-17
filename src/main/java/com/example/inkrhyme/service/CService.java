@@ -30,9 +30,9 @@ public class CService {
         return poems;
     }
 
-    public void updatePoems(CPoems model) {
-        model.setId(id);
-        iPoems.save(model);
+    public void updatePoems(CPoems poems, Long id) {
+        poems.setId(id);
+        iPoems.save(poems);
 
     }
 
@@ -41,6 +41,8 @@ public class CService {
 
 
     }
+
+
 }
 
 
