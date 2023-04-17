@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -25,8 +24,9 @@ public class CUserController {
     public List<CPoems> getPoems (Model model){
         return iPoems.findAll();
     }
+
     @GetMapping("/{id}")
-    public CPoems getPoemBy(@PathVariable int id) {
+    public CPoems getPoemBy(@PathVariable Long id) {
         return iPoems.findById(id).orElseThrow(RuntimeException::new);
     }
 
@@ -35,8 +35,9 @@ public class CUserController {
         CPoems savedPoem = iPoems.save(poems);
         return ResponseEntity.created(new URI("/clients/" + savedPoem.getId())).body(savedPoem);
     }
+
     @PutMapping("/update/{id}")
-    public ResponseEntity<CPoems> update(@PathVariable int id, @RequestBody CPoems poem){
+    public ResponseEntity<CPoems> update(@PathVariable Long id, @RequestBody CPoems poem){
         CPoems currentPoem = iPoems.findById(id).orElseThrow(RuntimeException::new);
         currentPoem.setTitle(poem.getTitle());
         currentPoem.setGenre(poem.getGenre());
@@ -46,8 +47,9 @@ public class CUserController {
         currentPoem = iPoems.save(currentPoem);
         return ResponseEntity.ok(currentPoem);
     }
+
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity delete(@PathVariable("id") int id){
+    public ResponseEntity delete(@PathVariable("id") Long id){
          iPoems.deleteById(id);
         return ResponseEntity.ok().build();
     }
