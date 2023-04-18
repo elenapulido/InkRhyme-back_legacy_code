@@ -14,7 +14,7 @@ public class CPoemsController {
     @Autowired
     CService cService;
 
-    @GetMapping("")
+    @GetMapping
     private List<CPoems> readPoems(){
         return cService.readPoems();
     }
@@ -24,7 +24,7 @@ public class CPoemsController {
         return cService.readPoemsId(id);
     }
 
-    @PostMapping("")
+    @PostMapping
     private void createPoems(@RequestBody CPoems poems){
         cService.createPoems(poems);
     }
