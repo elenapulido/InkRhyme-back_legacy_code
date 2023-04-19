@@ -17,27 +17,27 @@ public class CPoemsController {
     CService cService;
 
     @GetMapping("")
-    private List<CPoems> readPoems(){
+   public List<CPoems> readPoems(){
         return cService.readPoems();
 
     }
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    private Optional<CPoems> readPoemsId(@PathVariable("id") Long id){
+   public Optional<CPoems> readPoemsId(@PathVariable("id") Long id){
         return cService.readPoemsId(id);
 
     }
 
     @PostMapping("")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    private void createPoems(@RequestBody CPoems poems){
+    public void createPoems(@RequestBody CPoems poems){
         cService.createPoems(poems);
 
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    private void updatePoems(@RequestBody CPoems poems,@PathVariable("id")Long id){
+    public void updatePoems(@RequestBody CPoems poems,@PathVariable("id")Long id){
         cService.updatePoems(poems,id);
 
     }
@@ -45,7 +45,7 @@ public class CPoemsController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    private void deletePoems(@PathVariable("id")Long id){
+    public void deletePoems(@PathVariable("id")Long id){
         cService.deletePoems(id);
 
 
