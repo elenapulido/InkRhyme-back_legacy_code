@@ -4,21 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "poems")
 public class CPoems {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column (name = "id", nullable = false)
+    private long id;
+    @Column (name = "title", nullable = false)
     private String title;
+    @Column (name = "genre", nullable = false)
     private String genre;
-    private String author;
-    private String url;
+    @Column (name = "poem", nullable = false)
     private String poem;
+    @Column (name = "author", nullable = false)
+    private String author;
+    @Column (name = "url", nullable = false)
+    private String url;
 
 }
